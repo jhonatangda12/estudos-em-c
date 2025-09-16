@@ -3,6 +3,7 @@ int idade = 18;
 int temperatura = 30;
 float saldo = 100;
 float valor = 75.5;
+int nota = 8;
 
 //verificando se a idade é maior ou igual a 18
 void estrutudaDecisao(){
@@ -33,7 +34,7 @@ void carteira(){
         printf("Você não tem saldo na conta!\n");
     }
 }
-
+// verificando se preço é alto, médio ou baixo
 void preco(){
 
     if (valor > 100)
@@ -52,11 +53,22 @@ void preco(){
 
 }
 
+//verificando se a nota é maior ou igual a 7
+void notaAluno(){
+    if (nota >= 7){
+        printf("Aluno aprovado!\n");}
+        else{
+            printf("Aluno reprovado!\n");
+        }
+}
+
+
 int main(){
     estrutudaDecisao();
     temperaduraAr(); 
     carteira();
-    preco();       
+    preco();    
+    notaAluno();   
 
     return 0;
 }
