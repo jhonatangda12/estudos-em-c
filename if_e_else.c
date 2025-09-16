@@ -61,14 +61,22 @@ void notaAluno(){
             printf("Aluno reprovado!\n");
         }
 }
-
+//
+void notaENEM(){
+    if (nota >= 7){
+        printf("Aluno aprovado no ENEM!\n");}
+        else{
+            printf("Aluno reprovado no ENEM!\n");
+        }
+}
 
 int main(){
     estrutudaDecisao();
     temperaduraAr(); 
     carteira();
     preco();    
-    notaAluno();   
+    notaAluno(); 
+    notaENEM();  
 
     return 0;
 }
