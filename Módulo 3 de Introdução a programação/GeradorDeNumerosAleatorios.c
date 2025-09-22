@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-int opcao = 1; 
+int jogo; 
+char regras[1000];
 int numeroSecreto;
 int palpite;
 
@@ -14,14 +15,14 @@ void Menu (){
     printf("2. Ver regras\n");
     printf("3. Sair\n");
     printf("Escolha uma opção: ");
-    scanf("%d", &opcao);
-    if (opcao == 1) {
+    scanf("%d", &jogo);
+    if (jogo == 1) {
 
     }
 }
 
 void Condicao (){
-    switch (opcao)
+    switch (jogo)
     {
     case 1 :
         srand(time(0)); // inicializar gerador de números aleatórios
@@ -30,10 +31,15 @@ void Condicao (){
         scanf("%d", &palpite);
         if (numeroSecreto == palpite) {
             printf("Você acertou!\n");
-        } else {
-            printf("Você errou!\n");
         }
-        printf("Número gerado: %d\n", numeroSecreto);
+        else if (palpite > 9){
+            printf("Número inválido!");
+    }
+        else {
+            printf("Você errou!\n");
+            printf("Número gerado: %d\n", numeroSecreto);
+        }
+            
         break;
     default:
         printf("Opção inválida!\n");
