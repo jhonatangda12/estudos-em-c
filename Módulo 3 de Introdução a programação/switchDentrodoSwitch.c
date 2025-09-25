@@ -1,6 +1,7 @@
-#include <stdio.h>
-#include <stdio.h>
-#include <stdio.h>
+#include <stdint.h> 
+#include <stdlib.h>
+#include <time.h>
+
 int jogo;
 int numeroSecreto;
 int palpite;

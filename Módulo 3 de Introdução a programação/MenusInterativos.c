@@ -1,9 +1,12 @@
-#include <stdio.h>
-#include <stdio.h>
-#include <stdio.h>
+#include <stdint.h> 
+#include <stdlib.h>
+#include <time.h>
+
+
 int jogo;
 int numeroSecreto;
 int palpite;
+
 void Menu(){
   printf("Menu principal\n");
   printf("1. Iniciar jogo\n");
