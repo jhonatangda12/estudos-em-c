@@ -1,6 +1,7 @@
 #include <stdio.h>//bibilioteca padrao de entrada e saída
 #include <stdlib.h>//usada para funções como rand() e srand() (números aleatórios).
 #include <time.h>// usada para pegar o tempo atual com time(NULL) e inicializar o gerador de números aleatórios.
+#include <locale.h>
 
 //variável universal
 int escolha_pessoa, escolha_computador;
