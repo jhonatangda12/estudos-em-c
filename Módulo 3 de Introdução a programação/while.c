@@ -5,8 +5,9 @@
 #include <locale.h>
 
 //variável global
-int opcaoJogo;
-int opcao;
+int opcaoJokenpo;
+int opaoMenu;
+int opcaoMenu;
 int jogoJokenpo;
 int jogador;
 int computador;
@@ -21,50 +22,81 @@ void menu(){
         printf("2. Regras dos Jogos\n");
         printf("3. Sair\n");
         printf("Esolha uma opção: ");
-        scanf("%d", &opcao);
-        if (opcao < 1 || opcao > 3){
-            printf("Opção inválida. Esolha um número de 1 a 3!\n");
+        scanf("%d", &opaoMenu);
+        while (opaoMenu < 1 || opaoMenu > 3){
+            printf("Opção inválida. Esolha um número de 1 a 3!\n\n");
             menu();
         }
 }   
-//Função para escolha do jogo
-void condicao(){
-    switch (opcao)
+//Função para escolha das regras
+void menuRegras(){
+    switch (opaoMenu)
     {
+        case 2:
+            printf("***Menu Regras***\n\n");
+            printf("1. Jokenpô\n");
+            printf("2. Acerte o número\n");
+            printf("3. Voltar ao menu\n");
+            printf("Esolha uma opção: ");
+            scanf("%d", &opcaoMenu);
+            while (opcaoMenu < 1 || opcaoMenu > 3){
+                printf("Opção inválida. Esolha um número de 1 a 3!\n\n");
+                menuRegras();}
+
+            switch (opcaoMenu)
+            {
+                case 1:
+                    printf("?????");
+                    menuRegras();
+                    break;
+                
+                case 2:
+                    printf("?????");
+                    menuRegras();
+                    break;
+                case 3:
+                    menuJogos();
+                    break;        
+
+            }    
+      
+    }
+}
+//Função para escolha do jogo
+void menuJogos(){
+    switch (opaoMenu)
+    {           
     case 1:
-        printf("***Jogos***\n");
+        printf("***Jogos***\n\n");
         printf("1. Jokenpô\n");
         printf("2. Número certo\n");
         printf("Escolha seu jogo: ");
-        scanf("%d", &opcaoJogo);
+        scanf("%d", &opcaoJokenpo);
 //Caso o usuário escolha um número inválido        
-            if (opcaoJogo > 2 && opcaoJogo > 1){
-            printf("Opção inválida! Escolha um número de 1 a 2.\n");
-            condicao();            
+            while (opcaoJokenpo > 2 && opcaoJokenpo > 1){
+            printf("Opção inválida! Escolha um número de 1 a 2.\n\n");
+            menuJogos();            
         }
         break;
     }  
 }
 // Função para jogo Jokenpô
 void jokenpo(){
-    switch (opcaoJogo)
+    switch (opcaoJokenpo)
     {
     case 1:
-        printf("***Jogo Jokenpô***\n");
+        printf("***Jogo Jokenpô***\n\n");
         printf("1. Pedra\n");
         printf("2. Papel\n");
         printf("3. Tesoura\n");
         printf("Escolha seu objeto: ");
         scanf("%d", &jogador);
         computador = rand() % 3 + 1;
-        if ((jogador > 3 && jogador > 1) || (computador > 3 && computador < 1)){
+        while ((jogador > 3 && jogador > 1) || (computador > 3 && computador < 1)){
             printf("Opção inválida. Escolha um número de 1 a 3!\n");
             jokenpo();
         break;
-        }
-  
-
-        
+        }        
 
         switch (jogador)
     {
@@ -101,15 +133,15 @@ void jokenpo(){
     }
 }
 //Condição do jogo
-void condiao(){
+void condicao(){
     if ((jogador == 1 && computador == 3)||
     (jogador == 2 && computador == 1)||
     (jogador == 3 && computador == 2)){
         printf("Jogador ganhou!\n");
     } else if (jogador == computador){
-        printf("Empate. Jogue de novo!\n");
+        printf("Empate. Jogue de novo!\n\n");
     jokenpo();
-    condicao();}else
+    }else
     {
         printf("Computador veneu!\n");
     }
@@ -121,9 +153,11 @@ void condiao(){
 int main(){
     srand(time(NULL));
     menu();
-    condicao();
+    menuJogos();
+    menuRegras();
     jokenpo();
-    condiao();
+    condicao();
+    
 
     return 0;
 }
